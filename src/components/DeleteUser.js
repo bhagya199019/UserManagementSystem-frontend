@@ -12,9 +12,9 @@ const DeleteUser = ({ onDeleteSuccess, onCancel }) => {
       setDeleting(true);
 
       // Add your backend API endpoint for deleting a user
-    //  const apiUrl = `https://carrerflowdockerapp.onrender.com/deleteUser/${userEmail}`;
+     const apiUrl = `https://talent-trackapp.onrender.com/deleteUser/${userEmail}`;
 
-      const apiUrl = `http://localhost:8080/deleteUser/${userEmail}`
+    //  const apiUrl = `http://localhost:8080/deleteUser/${userEmail}`
       // Get the JWT token from localStorage
       const token = localStorage.getItem('jwtToken'); // Replace 'your_jwt_key' with the actual key used to store the JWT token
       // Make a DELETE request to the backend API
