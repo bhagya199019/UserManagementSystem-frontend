@@ -1,0 +1,27 @@
+/* Home.css */
+
+.home-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: gold;
+  }
+  
+  .content {
+    flex: 1;
+    color:black;
+  }
+  
+  .image-container {
+    flex: 1;
+    margin-left: 20px; /* Adjust the margin as needed */
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Add rounded corners to the image */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
+  }
+  

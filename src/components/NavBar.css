@@ -1,0 +1,51 @@
+/* NavBar.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#ADD8E6; /* Set your desired background color */
+    color:#c00864; /* Set your desired text color */
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    
+  }
+  
+  .navbar .left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar .right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .navbar li {
+    margin-right: 15px;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color:navy;
+    font-weight: bold;
+    text-decoration-style: solid;
+  }
+  
+  .navbar button {
+    background-color: transparent;
+    border: none;
+    color: grey;
+    cursor: pointer;
+  }
+  
+  /* Add additional styling as needed */
+  

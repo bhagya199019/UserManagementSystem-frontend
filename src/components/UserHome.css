@@ -1,0 +1,77 @@
+/* UserHome.css */
+.user-home-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #3498db; /* Updated border color */
+  border-radius: 10px;
+  background-color: #ecf0f1; /* Updated background color */
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #2ecc71; /* Updated button color */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.alert {
+  background-color: #27ae60; /* Updated alert background color */
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-button-container {
+  margin-top: 20px;
+}
+
+.delete-button {
+  background-color: #e74c3c; /* Updated delete button color */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+/* ... (existing styles) */
+
+.blue-button-container {
+  margin-top: 20px;
+}
+
+.blue-button {
+  background-color: #3498db; /* Blue button color */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
