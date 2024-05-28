@@ -78,7 +78,7 @@ const Register = () => {
 
     try {
       // Add your backend API endpoint
-     const apiUrl = 'https://talent-trackapp.onrender.com/register';
+     const apiUrl = 'https://usermanagementsystem-cllm.onrender.com/register';
 
   //    const apiUrl = 'http://localhost:8080/register';
 
