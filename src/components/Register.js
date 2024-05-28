@@ -46,14 +46,14 @@ const Register = () => {
     }
 
     if (!/^[6-9]\d{9}$/.test(formData.mobileNumber)) {
-      newErrors.mobileNumber = 'Mobile number should have only ten digits and starting with 6,7,8 or 9 ';
+      newErrors.mobileNumber = 'Mobile number should have only ten digits and start with 6, 7, 8, or 9';
       isValid = false;
     }
 
     // Password validation
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,15}$/;
     if (!passwordRegex.test(formData.password)) {
-      newErrors.password = 'Password should have at least one capital, one small letter, one digit, one special character, no spaces allowed, and length should be between 6 to 15';
+      newErrors.password = 'Password should have at least one capital letter, one small letter, one digit, one special character, no spaces allowed, and a length between 6 to 15 characters';
       isValid = false;
     }
 
@@ -78,21 +78,21 @@ const Register = () => {
       // Add your backend API endpoint
       const apiUrl = 'https://usermanagementsystem-cllm.onrender.com/register';
 
-      // Make a POST request to the backend API
-      const response = await axios.post(apiUrl, formData);
-
       // Define the headers
       const headers = {
         'Content-Type': 'application/json',
         // Uncomment and set the correct token if needed
-         'Authorization': 'Bearer ' + token
+        // 'Authorization': 'Bearer ' + token
       };
+
+      // Make a POST request to the backend API
+      const response = await axios.post(apiUrl, formData, { headers });
 
       // Handle the response (you can add more logic here)
       console.log('API Response:', response.data);
 
       if (response.status === 200) {
-        window.alert("Successfully Registered");
+        window.alert('Successfully Registered');
         navigate('/login');
       }
     } catch (error) {
@@ -102,12 +102,15 @@ const Register = () => {
         console.error('Error response:', error.response.data);
         console.error('Error status:', error.response.status);
         console.error('Error headers:', error.response.headers);
+        window.alert(`Registration failed: ${error.response.data}`);
       } else if (error.request) {
         // The request was made but no response was received
         console.error('Error request:', error.request);
+        window.alert('Registration failed: No response from server');
       } else {
         // Something happened in setting up the request that triggered an Error
         console.error('Error message:', error.message);
+        window.alert(`Registration failed: ${error.message}`);
       }
       console.error('Error config:', error.config);
     }
@@ -121,7 +124,7 @@ const Register = () => {
           <table>
             <tbody>
               <tr>
-                <td>FullName:</td>
+                <td>Full Name:</td>
                 <td>
                   <input
                     type="text"
