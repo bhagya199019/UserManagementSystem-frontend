@@ -12,7 +12,7 @@ const DeleteUser = ({ onDeleteSuccess, onCancel }) => {
       setDeleting(true);
 
       // Add your backend API endpoint for deleting a user
-     const apiUrl = `https://talent-trackapp.onrender.com/deleteUser/${userEmail}`;
+     const apiUrl = `https://usermanagementsystem-cllm.onrender.com/deleteUser/${userEmail}`;
 
     //  const apiUrl = `http://localhost:8080/deleteUser/${userEmail}`
       // Get the JWT token from localStorage
