@@ -8,7 +8,7 @@ const GetAllUsers = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-       const apiUrl = 'https://talent-trackapp.onrender.com/getAllUsers';
+       const apiUrl = 'https://usermanagementsystem-cllm.onrender.com/getAllUsers';
 
       //  const apiUrl = 'http://localhost:8080/getAllUsers';
         // Get the JWT token from localStorage
