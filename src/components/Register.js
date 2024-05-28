@@ -81,6 +81,13 @@ const Register = () => {
       // Make a POST request to the backend API
       const response = await axios.post(apiUrl, formData);
 
+      // Define the headers
+      const headers = {
+        'Content-Type': 'application/json',
+        // Uncomment and set the correct token if needed
+         'Authorization': 'Bearer ' + token
+      };
+
       // Handle the response (you can add more logic here)
       console.log('API Response:', response.data);
 
