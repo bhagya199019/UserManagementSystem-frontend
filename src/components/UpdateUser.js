@@ -78,7 +78,7 @@ const UpdateUser = () => {
 
   try {
     // Add your backend API endpoint
-    const apiUrl = 'https://talent-trackapp.onrender.com/updateUser';
+    const apiUrl = 'https://usermanagementsystem-cllm.onrender.com/updateUser';
 
  //   const apiUrl = 'http://localhost:8080/updateUser';
 
