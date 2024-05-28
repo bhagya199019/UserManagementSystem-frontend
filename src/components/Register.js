@@ -28,7 +28,6 @@ const Register = () => {
       ...formData,
       [name]: value,
     });
-    // Clear the error when the user starts entering text
     setErrors({
       ...errors,
       [name]: '',
@@ -39,7 +38,6 @@ const Register = () => {
     let isValid = true;
     const newErrors = { ...errors };
 
-    // Validation logic
     if (!/^[a-zA-Z\s]+$/.test(formData.fullName)) {
       newErrors.fullName = 'Username should have only characters and spaces';
       isValid = false;
@@ -50,7 +48,6 @@ const Register = () => {
       isValid = false;
     }
 
-    // Password validation
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,15}$/;
     if (!passwordRegex.test(formData.password)) {
       newErrors.password = 'Password should have at least one capital letter, one small letter, one digit, one special character, no spaces allowed, and a length between 6 to 15 characters';
@@ -70,25 +67,17 @@ const Register = () => {
     e.preventDefault();
 
     if (!validateForm()) {
-      // Form is not valid, do not proceed with the submission
       return;
     }
 
     try {
-      // Add your backend API endpoint
       const apiUrl = 'https://usermanagementsystem-cllm.onrender.com/register';
-
-      // Define the headers
       const headers = {
         'Content-Type': 'application/json',
-        // Uncomment and set the correct token if needed
-        // 'Authorization': 'Bearer ' + token
       };
 
-      // Make a POST request to the backend API
       const response = await axios.post(apiUrl, formData, { headers });
 
-      // Handle the response (you can add more logic here)
       console.log('API Response:', response.data);
 
       if (response.status === 200) {
@@ -97,18 +86,14 @@ const Register = () => {
       }
     } catch (error) {
       if (error.response) {
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
         console.error('Error response:', error.response.data);
         console.error('Error status:', error.response.status);
         console.error('Error headers:', error.response.headers);
         window.alert(`Registration failed: ${error.response.data}`);
       } else if (error.request) {
-        // The request was made but no response was received
         console.error('Error request:', error.request);
         window.alert('Registration failed: No response from server');
       } else {
-        // Something happened in setting up the request that triggered an Error
         console.error('Error message:', error.message);
         window.alert(`Registration failed: ${error.message}`);
       }
