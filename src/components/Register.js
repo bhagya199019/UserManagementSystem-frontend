@@ -35,38 +35,36 @@ const Register = () => {
     });
   };
 
-  
-  
-    const validateForm = () => {
-      let isValid = true;
-      const newErrors = { ...errors };
-  
-      // Validation logic
-      if (!/^[a-zA-Z\s]+$/.test(formData.fullName)) {
-        newErrors.fullName = 'Username should have only characters and spaces';
-        isValid = false;
-      }
-  
-      if (!/^[6-9]\d{9}$/.test(formData.mobileNumber)) {
-        newErrors.mobileNumber = 'Mobile number should have only ten digits and starting with 6,7,8 or 9 ';
-        isValid = false;
-      }
-  
-      // Password validation
-      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,15}$/;
-      if (!passwordRegex.test(formData.password)) {
-        newErrors.password = 'password should be having at leaset one capital, one small letter and one digit and one special charcter and no spaces allowed and length should be between 6 to 15 ';
-        isValid = false;
-      }
-  
-      if (formData.password !== formData.confirmPassword) {
-        newErrors.confirmPassword = 'Passwords do not match';
-        isValid = false;
-      }
-  
-      setErrors(newErrors);
-      return isValid;
-    };
+  const validateForm = () => {
+    let isValid = true;
+    const newErrors = { ...errors };
+
+    // Validation logic
+    if (!/^[a-zA-Z\s]+$/.test(formData.fullName)) {
+      newErrors.fullName = 'Username should have only characters and spaces';
+      isValid = false;
+    }
+
+    if (!/^[6-9]\d{9}$/.test(formData.mobileNumber)) {
+      newErrors.mobileNumber = 'Mobile number should have only ten digits and starting with 6,7,8 or 9 ';
+      isValid = false;
+    }
+
+    // Password validation
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,15}$/;
+    if (!passwordRegex.test(formData.password)) {
+      newErrors.password = 'Password should have at least one capital, one small letter, one digit, one special character, no spaces allowed, and length should be between 6 to 15';
+      isValid = false;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      newErrors.confirmPassword = 'Passwords do not match';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -78,9 +76,7 @@ const Register = () => {
 
     try {
       // Add your backend API endpoint
-     const apiUrl = 'https://usermanagementsystem-cllm.onrender.com/register';
-
-  //    const apiUrl = 'http://localhost:8080/register';
+      const apiUrl = 'https://usermanagementsystem-cllm.onrender.com/register';
 
       // Make a POST request to the backend API
       const response = await axios.post(apiUrl, formData);
@@ -89,12 +85,24 @@ const Register = () => {
       console.log('API Response:', response.data);
 
       if (response.status === 200) {
-        
         window.alert("Successfully Registered");
         navigate('/login');
       }
     } catch (error) {
-      console.error('Error:', error);
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.error('Error response:', error.response.data);
+        console.error('Error status:', error.response.status);
+        console.error('Error headers:', error.response.headers);
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error('Error request:', error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.error('Error message:', error.message);
+      }
+      console.error('Error config:', error.config);
     }
   };
 
